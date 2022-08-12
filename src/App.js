@@ -5,25 +5,30 @@ import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Location from './components/Location/Location';
+import TestComp from './components/TestComp/TestComp';
 
 function App() {
   return (
     <div className='w3-light-grey'>
-         <Navbar></Navbar>
+      <Navbar></Navbar>
 
-         <div className='w3-content contentmargin w3-round'>
-            
-          <div className='w3-margin-top'>
-           <Profile></Profile>
-          </div>
+      <div className='w3-content contentmargin w3-round'>
 
-             <div className='w3-margin-top'>
-               <Location></Location>
-             </div>
+        <div className='w3-margin-top'>
+          <TestComp myname="Emmanuel" myage="12"></TestComp>
+        </div>
 
-         </div>
-         
-         <Footer></Footer>
+        <div className='w3-margin-top'>
+          <Profile></Profile>
+        </div>
+
+        <div className='w3-margin-top'>
+          <Location></Location>
+        </div>
+
+      </div>
+
+      <Footer></Footer>
     </div>
   );
 }
