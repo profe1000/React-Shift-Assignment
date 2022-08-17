@@ -50,7 +50,7 @@ function Profile(prop) {
           <br />
 
           <img src="https://www.w3schools.com/howto/img_avatar.png" className="w3-round profileimg"/> &nbsp;
-
+ 
           Welcome,  {items.data.data["attributes"]["first_name"] + " " + items.data.data["attributes"]["last_name"] }
 
         </div>;
