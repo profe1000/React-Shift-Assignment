@@ -14,7 +14,7 @@ function App() {
 
       <div className='w3-content contentmargin w3-round'>
 
-        <div className='w3-margin-top'>
+        <div className='w3-margin-top w3-hide'>
           <TestComp myname="Emmanuel" myage="12"></TestComp>
         </div>
 

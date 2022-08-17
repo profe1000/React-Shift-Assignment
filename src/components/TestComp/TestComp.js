@@ -80,12 +80,9 @@ function TestComp(prop) {
 
   const loaddata = () =>{
     fetch("https://jsonplaceholder.typicode.com/todos")
-    .then((res) => 
-    {res.json()
-      console.log(res)
-    })
+    .then((res) =>  res.json())
     .then((data) =>
-     {setData(data)
+     {
       console.log(data)
     });
    

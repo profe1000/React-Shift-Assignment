@@ -1,3 +1,16 @@
 .cardheight{
-    min-height:300px;
+    height:200px;
+}
+
+.loader{
+    width:60px
+}
+
+.resetbtn{
+    width:150px
+}
+
+
+.profileimg{
+    width:100px
 }
