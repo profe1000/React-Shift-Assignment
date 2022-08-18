@@ -53,7 +53,8 @@ function Profile(prop) {
  
           Welcome,  {items.data.data["attributes"]["first_name"] + " " + items.data.data["attributes"]["last_name"] }
 
-          <br />
+          <br /><br />
+
 
         </div>;
     } else if (datastatus == 0) {
