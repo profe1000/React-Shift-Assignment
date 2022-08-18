@@ -125,14 +125,14 @@ function TestComp(prop) {
       {/* React Loop */}
       <h1>Who lives in my garage?</h1>
       <ul>
-        {cars.map((car) => <li>I am a {car.brand} and my Id is {car.id}</li>)}
+        {cars.map((car,index) => <li key={index}>I am a {car.brand} and my Id is {car.id}</li>)}
       </ul>
 
 
       {/* React Loop In Json */}
       <h1>Who lives in my garage?</h1>
       <ul>
-        {cars.map((car) => <li>I am a {car.brand} and my Id is {car.id}</li>)}
+        {cars.map((car,index) => <li key={index}>I am a {car.brand} and my Id is {car.id}</li>)}
       </ul>
 
 

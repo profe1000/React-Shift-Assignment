@@ -38,14 +38,14 @@ function Profile(prop) {
 
     if (datastatus == -1) {
 
-        return <div className="w3-card-2 w3-padding cardheight w3-round w3-white">
+        return <div className="w3-card-2 w3-padding  w3-round w3-white">
 
             <img src={process.env.PUBLIC_URL + "images/loading.gif"} className="w3-round loader" />  Loading Data...
 
         </div>;
 
     } else if (datastatus == 200) {
-        return <div className="w3-card-2 w3-padding cardheight w3-round w3-white">
+        return <div className="w3-card-2 w3-padding  w3-round w3-white">
 
           <br />
 
@@ -53,10 +53,12 @@ function Profile(prop) {
  
           Welcome,  {items.data.data["attributes"]["first_name"] + " " + items.data.data["attributes"]["last_name"] }
 
+          <br />
+
         </div>;
     } else if (datastatus == 0) {
 
-        return <div className="w3-card-2 w3-padding cardheight w3-round w3-white">
+        return <div className="w3-card-2 w3-padding  w3-round w3-white">
 
             <br /> <br /> No Internet Connection  <br /><br /> <br />
 
@@ -66,7 +68,7 @@ function Profile(prop) {
 
     } else {
 
-        return (<div className="w3-card-2 w3-padding cardheight w3-round w3-white">
+        return (<div className="w3-card-2 w3-padding  w3-round w3-white">
 
             <br /> <br /> Error: {error.message} <br /><br /> <br />
 

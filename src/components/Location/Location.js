@@ -41,6 +41,12 @@ function Location() {
             })
     }
 
+    const Startagain = () => {
+        setDatastatus(-2);
+    }
+
+
+
     if (datastatus == -2) {
 
         return <div className="w3-card-2 w3-padding cardheight w3-round w3-white">
@@ -75,7 +81,7 @@ function Location() {
 
     else if (datastatus == -1) {
 
-        return <div className="w3-card-2 w3-padding cardheight w3-round w3-white">
+        return <div className="w3-card-2 w3-padding  w3-round w3-white">
 
             <br />
 
@@ -84,46 +90,99 @@ function Location() {
         </div>;
 
     } else if (datastatus == 200) {
-        return <div className="w3-card-2 w3-padding cardheight w3-round w3-white">
+        return <div className="w3-card-2 w3-padding w3-round w3-white">
 
             <h3> You have made Request for Resident ID : {residentid} </h3><br />
 
-            <img src={process.env.PUBLIC_URL + "images/iconaddress.png"} className='icon'/> Address :
+            <button className='w3-btn w3-yellow w3-round w3-text-blue resetbtn' onClick={() => Startagain()}> Change ID </button> <br /><br />
 
-            {items.data.data["attributes"]["address_1"]} <hr/>
+            <img src={process.env.PUBLIC_URL + "images/iconaddress.png"} className='icon' /> Address :
 
-            <img src={process.env.PUBLIC_URL + "images/iconaddress.png"} className='icon'/>  Resident Name :
+            {items.data.data["attributes"]["address_1"]} <hr />
 
-            {items.data.data["attributes"]["nickname"]} <hr/>
+            <img src={process.env.PUBLIC_URL + "images/iconaddress.png"} className='icon' />  Resident Name :
+
+            {items.data.data["attributes"]["nickname"]} <hr />
 
 
-            <img src={process.env.PUBLIC_URL + "images/iconenergy.png"} className='icon'/>  Total Energy Used :
+            <img src={process.env.PUBLIC_URL + "images/iconenergy.png"} className='icon' />  Total Energy Used :
 
-            {items.data.data["attributes"]["usage_data"]["gen_usage_today"]  + items.data.data["attributes"]["usage_data"]["grid_usage_today"] } Kw
+            {items.data.data["attributes"]["usage_data"]["gen_usage_today"] + items.data.data["attributes"]["usage_data"]["grid_usage_today"]} Kw
 
             <br /><br />
 
-            <img src={process.env.PUBLIC_URL + "images/iconenergy.png"} className='icon' />  GEN Usage : {items.data.data["attributes"]["usage_data"]["gen_usage_today"] }
+            <img src={process.env.PUBLIC_URL + "images/icongen.png"} className='icon' />  GEN Usage : {items.data.data["attributes"]["usage_data"]["gen_usage_today"]}Kw
+
+            <br /><br />
+
+            <img src={process.env.PUBLIC_URL + "images/icontransformer.png"} className='icon' />  GRID Usage : {items.data.data["attributes"]["usage_data"]["grid_usage_today"]}KW
+
+
+            <hr />
+
+            Devices Included in this Household <br /><br />
+
+
+            <div className="w3-responsive">
+                <table className="w3-table-all">
+                 
+                  <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Device ID</th>
+                        <th>Device Type</th>
+                        <th>Online Status</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                    {items.data.included.map((item,index) => <tr key={index}>
+                        <td>{ index + 1 }</td>
+                        <td>{ item.id }</td>
+                        <td>{ item.type }</td>
+                        <td>{ item.attributes.online?  'True' : 'False'}</td>
+                    </tr>)}
+
+                  </tbody>
+
+
+
+                </table>
+
+            </div>
+
+
 
         </div>;
 
     } else if (datastatus == 0) {
 
-        return <div className="w3-card-2 w3-padding cardheight w3-round w3-white">
+        return <div className="w3-card-2 w3-padding w3-round w3-white">
 
             <br /> <br /> No Internet Connection  <br /><br /> <br />
 
-            <button className='w3-btn w3-yellow w3-round w3-text-blue resetbtn' onClick={() => Loaddata()}> Reset</button> <br /><br />
+            <button className='w3-btn w3-yellow w3-round w3-text-blue resetbtn' onClick={() => Loaddata()}> ReLoad </button>  &nbsp;
+
+            <button className='w3-btn w3-yellow w3-round w3-text-blue resetbtn' onClick={() => Startagain()}> Reset </button>
+
+            <br /><br />
 
         </div>;
 
     } else {
 
-        return (<div className="w3-card-2 w3-padding cardheight w3-round w3-white">
+        return (<div className="w3-card-2 w3-padding  w3-round w3-white">
 
             <br /> <br /> Error: {error.message} <br /><br /> <br />
 
-            <button className='w3-btn w3-yellow w3-round w3-text-blue resetbtn' onClick={() => Loaddata()}> Reset</button> <br /><br />
+            <button className='w3-btn w3-yellow w3-round w3-text-blue resetbtn' onClick={() => Loaddata()}> ReLoad </button> &nbsp;
+
+            <button className='w3-btn w3-yellow w3-round w3-text-blue resetbtn' onClick={() => Startagain()}> Reset </button>
+
+            <br /><br />
+
+
 
         </div>
 
