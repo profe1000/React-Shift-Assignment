@@ -1,6 +1,5 @@
 import './App.css';
 import './assets/css/w3.css'
-import Basichome from './components/Basichome/Basichome';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
